@@ -7,14 +7,14 @@
 #### Desenvolver um sistema para gerenciamento de uma Livraria com recursos dispostos para o usuário acessar e manipular, com facilidade e agilidade, os produtos comprados, vendidos e o estoque, além de ter visibilidade do lucro obtido.
 ---
 ## Descrição de cada funcionalidade
-* Cadastro de Livros
-* Alteração de Livros
-* Exclusão de Livros
-* Cadastro de Funcionários
-* Alteração de Funcionários
-* Exclusão de funcionários
-* Controle de estoque de Livros (adição e subtração de unidades)
-* Monitoramento de Lucro
+* Cadastro de Livros;
+* Alteração de Livros;
+* Exclusão de Livros;
+* Cadastro de Funcionários;
+* Alteração de Funcionários;
+* Exclusão de funcionários;
+* Controle de estoque de Livros (adição e subtração de unidades);
+* Monitoramento de Lucro.
 ---
 ## Recursos adotados em cada funcionalidade
 * Java 8;
@@ -45,7 +45,7 @@
    * Gênero;
    * CPF;
    * Cargo;
-   * Login;}
+   * Login;
    * Senha;}
 
 3. Classe Pedido {
@@ -62,3 +62,4 @@
 ---
 ## Demais informações pertinentes
 #### Em geral, as editoras entram em acordo com as livrarias para que o preço de capa do livro seja vendido por 50% a mais para o consumidor final em comparação com o preço que a livraria comprou da editora, ou seja, o valor do livro final é dividido 50% para editora e 50% para a livraria. Essa porcentagem pode variar de editora para editora, no nosso sistema iremos adotar o valor padrão de 50%.
+
