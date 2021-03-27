@@ -62,4 +62,3 @@
 ---
 ## Demais informações pertinentes
 #### Em geral, as editoras entram em acordo com as livrarias para que o preço de capa do livro seja vendido por 50% a mais para o consumidor final em comparação com o preço que a livraria comprou da editora, ou seja, o valor do livro final é dividido 50% para editora e 50% para a livraria. Essa porcentagem pode variar de editora para editora, no nosso sistema iremos adotar o valor padrão de 50%.
-
