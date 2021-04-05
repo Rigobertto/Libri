@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Util {
+	
 	public static String formataData(Calendar data) {
 		String d;
 		int dia = data.get(Calendar.DATE);
@@ -146,6 +147,70 @@ public class Util {
 						return true;
 				}
 			}
+		}
+	}
+	
+	public static boolean isISBN13(String isbn) {
+		if(isbn.length() != 13) {
+			return false;
+		} else {
+			int numeros[] = new int[13];
+			
+			for(int i = 0; i < 13; i++) {
+				numeros[i] = Character.getNumericValue(isbn.charAt(i));	
+			}
+			
+			int soma = 0, resto = 0, digito_verificador;
+			
+			for(int i = 0, j = 1; i < 12; i++) {
+				soma += numeros[i] * j;
+				
+				if(j == 1)
+					j = 3;
+				else
+					j = 1;
+			}
+			
+			resto = soma % 10;
+			
+			if(resto == 0)
+				digito_verificador = 0;
+			else
+				digito_verificador = 10 - resto;
+			
+			if(numeros[12] == digito_verificador)
+				return true;
+			else return false;
+		}
+	}
+	
+	public static boolean isISBN10(String isbn) {
+		if(isbn.length() != 10) {
+			return false;
+		} else {
+			int numeros[] = new int[10];
+			
+			for(int i = 0; i < 10; i++) {
+				if(isbn.charAt(i) == 'X' || isbn.charAt(i) == 'x') {
+					numeros[i] = 10;
+				} else {
+					numeros[i] = Character.getNumericValue(isbn.charAt(i));	
+				}
+			}
+			
+			int soma = 0, resto = 0, digito_verificador;
+			
+			for(int i = 0, j = 10; i < 9; i++) {
+				soma += numeros[i] * j;
+				j--;
+			}
+			
+			resto = soma % 11;
+			digito_verificador = 11 - resto;
+			
+			if(numeros[9] == digito_verificador)
+				return true;
+			else return false;
 		}
 	}
 }

@@ -1,32 +1,68 @@
 package model.vo;
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
 
 public class PedidoVO {
-	private LivroVO livro;
-	float valor;
+	String operacao;
+	private List<LivroVO> livros;
+	double valor;
 	FuncionarioVO funcionario;
 	Calendar data;
 	Calendar hora;
-	//Operação (compra ou venda); Método? -Rigo
-	float lucro;
+	double lucro;
 	
-	public LivroVO getLivro() {
-		return livro;
-	}
-	public void setLivro(LivroVO livro) {
-		this.livro = livro;
+	public String getOperacao() {
+		return operacao;
 	}
 	
-	public float getValor() {
+	public void setOperacao(String operacao) {
+		if(operacao != null && !operacao.isEmpty()) {
+			this.operacao = operacao;
+		} else {
+			System.out.println("OperaÃ§Ã£o vazia ou nula");
+		}
+	}
+	
+	public List<LivroVO> getLivros() {
+		return livros;
+	}
+	
+	public void setLivros(List<LivroVO> livros) {
+		this.livros = livros;
+	}
+	
+	public double getValor() {
 		return valor;
 	}
-	public void setValor(float valor) {
-		this.valor = valor;
+	
+	public void setValor() {
+		if(operacao == "venda") {
+			Iterator<LivroVO> i = livros.iterator();
+			double soma = 0.0;
+			
+			while(i.hasNext()) {
+				soma += i.next().getValorVenda(); 
+			}
+			
+			valor = soma;
+			
+		} else {
+			Iterator<LivroVO> i = livros.iterator();
+			double soma = 0.0;
+			
+			while(i.hasNext()) {
+				soma += i.next().getValorCompra(); 
+			}
+			
+			valor = soma;
+		}
 	}
 	
 	public FuncionarioVO getFuncionario() {
 		return funcionario;
 	}
+	
 	public void setFuncionario(FuncionarioVO funcionario) {
 		this.funcionario = funcionario;
 	}
@@ -34,6 +70,7 @@ public class PedidoVO {
 	public Calendar getData() {
 		return data;
 	}
+	
 	public void setData(Calendar data) {
 		this.data = data;
 	}
@@ -41,14 +78,25 @@ public class PedidoVO {
 	public Calendar getHora() {
 		return hora;
 	}
+	
 	public void setHora(Calendar hora) {
 		this.hora = hora;
 	}
 	
-	public float getLucro() {
+	public double getLucro() {
 		return lucro;
 	}
-	public void setLucro(float lucro) {
-		this.lucro = lucro;
+	
+	public void setLucro() {
+		if(operacao == "venda") {
+			Iterator<LivroVO> i = livros.iterator();
+			double soma = 0.0;
+			
+			while(i.hasNext()) {
+				soma += i.next().getValorVenda(); 
+			}
+			
+			lucro = soma / 2.0;
+		} else lucro = 0.0;
 	}
 }
