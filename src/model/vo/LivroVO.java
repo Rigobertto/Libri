@@ -3,6 +3,7 @@ package model.vo;
 import java.util.Calendar;
 
 public class LivroVO {
+	private int id;
 	private String titulo;
 	private String autor;
 	private String cod_ISBN10;
@@ -14,6 +15,18 @@ public class LivroVO {
 	private float val_venda;
 	private String idioma;
 	private Calendar data_publi;
+	
+	public int getID() {
+	    return this.id;
+	}
+	
+	public void setID(int id) {
+		if(id > 0) {
+			this.id = id;
+		} else {
+			System.out.println("ID inv�lido");
+		}
+	}
 	
 	public String getTitulo() {
 		return titulo;
