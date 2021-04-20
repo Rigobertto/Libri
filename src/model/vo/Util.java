@@ -25,7 +25,7 @@ public class Util {
 	}
 	
 	public static Calendar formataData(String d) {
-		Calendar dataNascimento = new GregorianCalendar();
+		Calendar data = new GregorianCalendar();
 		
 		int dia = Integer.parseInt(d.substring(0, 2));
 		int mes = Integer.parseInt(d.substring(3, 5));
@@ -33,13 +33,31 @@ public class Util {
 		
 		mes -= 1;
 		
-		if(dia > 0 && dia <= 31 && mes > 0 && mes <= 12)
-			if (mes == 2 && dia > 28)
-				dataNascimento = null;
+		if(dia > 0 && dia <= 31 && mes >= 0 && mes < 12)
+			if (mes == 2 && dia > 29)
+				data = null;
 			else 
-				dataNascimento.set(ano, mes, dia);
+				data.set(ano, mes, dia);
+		else data = null;
 		
-		return dataNascimento;
+		return data;
+	}
+	
+	public static String inverteData(String d) {
+		int ano = Integer.parseInt(d.substring(0, 4));
+		int mes = Integer.parseInt(d.substring(5, 7));
+		int dia = Integer.parseInt(d.substring(8, 10));
+		
+		if (dia < 10 && mes < 10)
+			d = "0" + dia + "/0" + mes + "/" + ano;
+		else if (dia < 10)
+			d = "0" + dia + "/" + mes + "/" + ano;
+		else if (mes < 10)
+			d = dia + "/0" + mes + "/" + ano;
+		else 
+			d = dia + "/" + mes + "/" + ano;
+		
+		return d;
 	}
 	
 	public static String formataHora(Calendar hora) {

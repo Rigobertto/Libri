@@ -1,16 +1,16 @@
 package model.vo;
 
 public class FuncionarioVO extends PessoaVO{
-	private int id;
+	private long id;
 	private CargoVO cargo;
 	private String login;
 	private String senha;
 	
-	public int getID() {
+	public long getID() {
 	    return this.id;
 	}
 	
-	public void setID(int id) {
+	public void setID(long id) {
 		if(id > 0) {
 			this.id = id;
 		} else {

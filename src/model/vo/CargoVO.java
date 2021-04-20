@@ -1,15 +1,15 @@
 package model.vo;
 
 public class CargoVO {
-	private int id;
+	private long id;
 	private String nome;
 	private double salario;
 	
-	public int getID() {
+	public long getID() {
 	    return this.id;
 	}
 	
-	public void setID(int id) {
+	public void setID(long id) {
 		if(id > 0) {
 			this.id = id;
 		} else {

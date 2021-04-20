@@ -3,7 +3,7 @@ package model.vo;
 import java.util.Calendar;
 
 public class LivroVO {
-	private int id;
+	private long id;
 	private String titulo;
 	private String autor;
 	private String cod_ISBN10;
@@ -16,11 +16,11 @@ public class LivroVO {
 	private String idioma;
 	private Calendar data_publi;
 	
-	public int getID() {
+	public long getID() {
 	    return this.id;
 	}
 	
-	public void setID(int id) {
+	public void setID(long id) {
 		if(id > 0) {
 			this.id = id;
 		} else {
@@ -149,10 +149,16 @@ public class LivroVO {
 			Calendar data = Util.formataData(data_publi);
 			if(data != null) {
 				Calendar hoje = Calendar.getInstance();
-				if(data.get(Calendar.YEAR) >= hoje.get(Calendar.YEAR)) {
-					System.out.println("Data de nascimento inválida!");
+				if(data.get(Calendar.YEAR) > hoje.get(Calendar.YEAR)) {
+					System.out.println(data.get(Calendar.YEAR));
+					System.out.println(hoje.get(Calendar.YEAR));
+					System.out.println("Data " + data_publi + " inválida!");
 				} else this.data_publi = data;
-			} else System.out.println("Data de nascimento inválida!");
-		} else System.out.println("Data de nascimento nula ou vazia!");
+			} else System.out.println("Data NULA!");
+		} else System.out.println("Data nula ou vazia!");
+	}
+	
+	public String toString() {
+		return (titulo + ", " + autor);
 	}
 }

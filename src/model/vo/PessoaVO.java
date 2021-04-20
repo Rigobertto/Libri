@@ -5,7 +5,7 @@ import java.util.Calendar;
 import model.vo.Util;
 
 public class PessoaVO {
-	private int id;
+	private long id;
 	private String nome;
 	private Calendar nascimento;
 	private String genero;
@@ -14,11 +14,11 @@ public class PessoaVO {
 	private String endereco;
 	private String email;
 	
-	public int getID() {
+	public long getID() {
 	    return id;
 	}
 	
-	public void setID(int id) {
+	public void setID(long id) {
 		if(id > 0) {
 			this.id = id;
 		} else {

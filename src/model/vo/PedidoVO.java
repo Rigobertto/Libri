@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class PedidoVO {
+	private long id;
 	String operacao;
 	private List<LivroVO> livros;
 	double valor;
@@ -11,6 +12,18 @@ public class PedidoVO {
 	Calendar data;
 	Calendar hora;
 	double lucro;
+	
+	public long getID() {
+	    return this.id;
+	}
+	
+	public void setID(long id) {
+		if(id > 0) {
+			this.id = id;
+		} else {
+			System.out.println("ID inv�lido");
+		}
+	}
 	
 	public String getOperacao() {
 		return operacao;
