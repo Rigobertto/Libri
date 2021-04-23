@@ -20,7 +20,7 @@ public class CargoDAO extends BaseDAO{
 	
 	public void remover(CargoVO cargo) {
 		conn = getConnection();
-		String sql = "delete from cargo where id = ?";
+		String sql = "delete from cargo where ide = ?";
 		
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
@@ -33,7 +33,7 @@ public class CargoDAO extends BaseDAO{
 	
 	public void atualizar(CargoVO cargo, CargoVO novoCargo) {
 		conn = getConnection();
-		String sql = "update cargo set nome = ?, salario = ? where id = ?";
+		String sql = "update cargo set nome = ?, salario = ? where ide = ?";
 		
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class CargoDAO extends BaseDAO{
 	
 	public ResultSet buscarID(CargoVO cargo) {
 		conn = getConnection();
-		String sql = "select * from cargo where id = ?;";
+		String sql = "select * from cargo where ide = ?;";
 		
 		PreparedStatement pst;
 		ResultSet rs;

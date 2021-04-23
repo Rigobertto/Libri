@@ -40,4 +40,8 @@ public class CargoVO {
 			System.out.println("Salario mínimo não atingido");
 		}
 	}
+	
+	public String toString() {
+		return nome + ", " + salario;
+	}
 }

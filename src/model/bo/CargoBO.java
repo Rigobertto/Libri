@@ -12,7 +12,7 @@ public class CargoBO {
 	
 	public void inserir(CargoVO cargo) {
 		if(cargo != null) {
-			if(buscarNome(cargo) != null) {
+			if(buscarNome(cargo) == null) {
 				dao.inserir(cargo);
 			} else {
 				System.out.println("Cargo já existe");
@@ -45,11 +45,13 @@ public class CargoBO {
 		
 		try {
 			if(rs.next()) {
-				cargo.setID(rs.getLong("id"));
+				cargo.setID(rs.getLong("ide"));
 				cargo.setNome(rs.getString("nome"));
 				cargo.setSalario(rs.getDouble("salario"));
-			}
-			return cargo;
+				
+				return cargo;
+			} else return null;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,11 +64,12 @@ public class CargoBO {
 		
 		try {
 			if(rs.next()) {
-				cargo.setID(rs.getLong("id"));
+				cargo.setID(rs.getLong("ide"));
 				cargo.setNome(rs.getString("nome"));
 				cargo.setSalario(rs.getDouble("salario"));
-			}
-			return cargo;
+				
+				return cargo;
+			} else return null;			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,7 +85,7 @@ public class CargoBO {
 			while(rs.next()) {
 				CargoVO cargo = new CargoVO();
 				
-				cargo.setID(rs.getLong("id"));
+				cargo.setID(rs.getLong("ide"));
 				cargo.setNome(rs.getString("nome"));
 				cargo.setSalario(rs.getDouble("salario"));
 				

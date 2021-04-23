@@ -53,7 +53,7 @@ public class LivroBO {
 		
 		try {
 			if(rs.next()) {
-				livro.setID(rs.getLong("id"));
+				livro.setID(rs.getLong("ide"));
 			
 				livro.setCodISBN10(rs.getString("isbn10"));
 				livro.setCodISBN13(rs.getString("isbn13"));
@@ -70,8 +70,10 @@ public class LivroBO {
 				
 				livro.setTitulo(rs.getString("titulo"));
 				livro.setAutor(rs.getString("autor"));
-			}
-			return livro;
+				
+				return livro;
+			} else return null;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,7 +87,7 @@ public class LivroBO {
 		
 		try {
 			if(rs.next()) {
-				livro.setID(rs.getLong("id"));
+				livro.setID(rs.getLong("ide"));
 			
 				livro.setCodISBN10(rs.getString("isbn10"));
 				livro.setCodISBN13(rs.getString("isbn13"));
@@ -102,8 +104,10 @@ public class LivroBO {
 				
 				livro.setTitulo(rs.getString("titulo"));
 				livro.setAutor(rs.getString("autor"));
-			}
-			return livro;
+				
+				return livro;
+			} else return null;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +120,7 @@ public class LivroBO {
 		
 		try {
 			if(rs.next()) {
-				livro.setID(rs.getLong("id"));
+				livro.setID(rs.getLong("ide"));
 			
 				livro.setCodISBN10(rs.getString("isbn10"));
 				livro.setCodISBN13(rs.getString("isbn13"));
@@ -133,8 +137,10 @@ public class LivroBO {
 				
 				livro.setTitulo(rs.getString("titulo"));
 				livro.setAutor(rs.getString("autor"));
-			}
-			return livro;
+				
+				return livro;
+			} return null;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -149,7 +155,7 @@ public class LivroBO {
 		try {
 			while(rs.next()) {
 				LivroVO l = new LivroVO();
-				l.setID(rs.getLong("id"));
+				l.setID(rs.getLong("ide"));
 				l.setCodISBN10(rs.getString("isbn10"));
 				l.setCodISBN13(rs.getString("isbn13"));
 				l.setPaginas(rs.getInt("paginas"));
@@ -184,7 +190,7 @@ public class LivroBO {
 		try {
 			while(rs.next()) {
 				LivroVO l = new LivroVO();
-				l.setID(rs.getLong("id"));
+				l.setID(rs.getLong("ide"));
 				l.setCodISBN10(rs.getString("isbn10"));
 				l.setCodISBN13(rs.getString("isbn13"));
 				l.setPaginas(rs.getInt("paginas"));
@@ -219,7 +225,7 @@ public class LivroBO {
 		try {
 			while(rs.next()) {
 				LivroVO l = new LivroVO();
-				l.setID(rs.getLong("id"));
+				l.setID(rs.getLong("ide"));
 				l.setCodISBN10(rs.getString("isbn10"));
 				l.setCodISBN13(rs.getString("isbn13"));
 				l.setPaginas(rs.getInt("paginas"));
@@ -254,7 +260,7 @@ public class LivroBO {
 		try {
 			while(rs.next()) {
 				LivroVO l = new LivroVO();
-				l.setID(rs.getLong("id"));
+				l.setID(rs.getLong("ide"));
 				l.setCodISBN10(rs.getString("isbn10"));
 				l.setCodISBN13(rs.getString("isbn13"));
 				l.setPaginas(rs.getInt("paginas"));
@@ -289,7 +295,7 @@ public class LivroBO {
 		try {
 			while(rs.next()) {
 				LivroVO l = new LivroVO();
-				l.setID(rs.getLong("id"));
+				l.setID(rs.getLong("ide"));
 				l.setCodISBN10(rs.getString("isbn10"));
 				l.setCodISBN13(rs.getString("isbn13"));
 				l.setPaginas(rs.getInt("paginas"));

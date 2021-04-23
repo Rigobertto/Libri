@@ -31,7 +31,7 @@ public class LivroDAO extends BaseDAO {
 	
 	public void remover(LivroVO livro) {
 		conn = getConnection();
-		String sql = "delete from livro where id = ?;";
+		String sql = "delete from livro where ide = ?";
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setLong(1, livro.getID());
@@ -47,7 +47,7 @@ public class LivroDAO extends BaseDAO {
 		PreparedStatement pst;
 		
 		try {
-				String sql = "update livro set isbn10 = ?, isbn13 = ?, paginas = ?, editora = ?, estoque = ?, val_compra = ?, val_venda = ?, idioma = ?, data_publicacao = ?, titulo = ?, autor = ? where id = ?";
+				String sql = "update livro set isbn10 = ?, isbn13 = ?, paginas = ?, editora = ?, estoque = ?, val_compra = ?, val_venda = ?, idioma = ?, data_publicacao = ?, titulo = ?, autor = ? where ide = ?";
 				pst = conn.prepareStatement(sql);
 				
 				pst.setString(1, novoLivro.getCodISBN10());
@@ -72,7 +72,7 @@ public class LivroDAO extends BaseDAO {
 	
 	public ResultSet buscarID(LivroVO livro) {
 		conn = getConnection();
-		String sql = "select * from livro where id = ?;";
+		String sql = "select * from livro where ide = ?;";
 		
 		PreparedStatement pst;
 		ResultSet rs;
@@ -194,7 +194,6 @@ public class LivroDAO extends BaseDAO {
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setDate(1, new Date(livro.getDataPubli().getTimeInMillis()));
-			
 			rs = pst.executeQuery();
 			return rs;
 		} catch(SQLException e) {
