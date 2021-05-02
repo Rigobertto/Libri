@@ -69,7 +69,7 @@ public class PessoaVO {
 	}
 	
 	public void setCPF(String cpf) { // Programar a validação de CPF
-		if(nome != null && !nome.isEmpty()) {
+		if(cpf != null && !cpf.isEmpty()) {
 			if(Util.isCPF(cpf))
 				this.cpf = cpf;
 			else 
