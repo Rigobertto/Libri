@@ -31,6 +31,15 @@ public class FuncionarioBO extends PessoaBO {
 		}
 	}
 	
+	public void atualizar(FuncionarioVO funcionario, FuncionarioVO novoFuncionario) {
+		if(funcionario != null && novoFuncionario != null) {
+			if(buscarID(funcionario) != null) {
+				super.atualizar(funcionario, novoFuncionario);
+				dao.atualizar(funcionario, novoFuncionario);
+			}
+		}
+	}
+	
 	public FuncionarioVO buscarID(FuncionarioVO funcionario) {
 		ResultSet rs = dao.buscarID(funcionario);
 		
