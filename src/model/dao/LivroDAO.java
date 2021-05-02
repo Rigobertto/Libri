@@ -3,7 +3,7 @@ package model.dao;
 import model.vo.LivroVO;
 import java.sql.*;
 
-public class LivroDAO extends BaseDAO {
+public class LivroDAO extends BaseDAO implements InterfaceDAO<LivroVO>{
 	public void inserir(LivroVO livro) {
 		conn = getConnection();
 		String sql = "insert into livro(isbn10, isbn13, paginas, editora, estoque, val_compra, val_venda, idioma, data_publicacao, titulo, autor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -15,8 +15,8 @@ public class LivroDAO extends BaseDAO {
 			pst.setInt(3, livro.getPaginas());
 			pst.setString(4, livro.getEditora());
 			pst.setInt(5, livro.getEstoque());
-			pst.setFloat(6, livro.getValorCompra());
-			pst.setFloat(7, livro.getValorVenda());
+			pst.setDouble(6, livro.getValorCompra());
+			pst.setDouble(7, livro.getValorVenda());
 			pst.setString(8, livro.getIdioma());
 			pst.setDate(9, new Date(livro.getDataPubli().getTimeInMillis()));
 			pst.setString(10, livro.getTitulo());
@@ -55,8 +55,8 @@ public class LivroDAO extends BaseDAO {
 				pst.setInt(3, novoLivro.getPaginas());
 				pst.setString(4, novoLivro.getEditora());
 				pst.setInt(5, novoLivro.getEstoque());
-				pst.setFloat(6, novoLivro.getValorCompra());
-				pst.setFloat(7, novoLivro.getValorVenda());
+				pst.setDouble(6, novoLivro.getValorCompra());
+				pst.setDouble(7, novoLivro.getValorVenda());
 				pst.setString(8, novoLivro.getIdioma());
 				pst.setDate(9, new Date(novoLivro.getDataPubli().getTimeInMillis()));
 				pst.setString(10, novoLivro.getTitulo());

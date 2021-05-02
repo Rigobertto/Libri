@@ -7,7 +7,7 @@ import java.util.List;
 import model.dao.CargoDAO;
 import model.vo.CargoVO;
 
-public class CargoBO {
+public class CargoBO implements InterfaceBO<CargoVO>{
 	CargoDAO dao = new CargoDAO();
 	
 	public void inserir(CargoVO cargo) {
@@ -93,7 +93,6 @@ public class CargoBO {
 			}
 			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}

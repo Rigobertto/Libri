@@ -5,13 +5,13 @@ import java.util.List;
 
 public class PedidoVO {
 	private long id;
-	String operacao;
+	private String operacao;
 	private List<LivroVO> livros;
-	double valor;
-	FuncionarioVO funcionario;
-	Calendar data;
-	Calendar hora;
-	double lucro;
+	private double valor;
+	private FuncionarioVO funcionario;
+	private Calendar data;
+	private Calendar hora;
+	private double lucro;
 	
 	public long getID() {
 	    return this.id;
@@ -49,27 +49,8 @@ public class PedidoVO {
 		return valor;
 	}
 	
-	public void setValor() {
-		if(operacao == "venda") {
-			Iterator<LivroVO> i = livros.iterator();
-			double soma = 0.0;
-			
-			while(i.hasNext()) {
-				soma += i.next().getValorVenda(); 
-			}
-			
-			valor = soma;
-			
-		} else {
-			Iterator<LivroVO> i = livros.iterator();
-			double soma = 0.0;
-			
-			while(i.hasNext()) {
-				soma += i.next().getValorCompra(); 
-			}
-			
-			valor = soma;
-		}
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 	
 	public FuncionarioVO getFuncionario() {
@@ -100,16 +81,21 @@ public class PedidoVO {
 		return lucro;
 	}
 	
-	public void setLucro() {
-		if(operacao == "venda") {
-			Iterator<LivroVO> i = livros.iterator();
-			double soma = 0.0;
-			
-			while(i.hasNext()) {
-				soma += i.next().getValorVenda(); 
-			}
-			
-			lucro = soma / 2.0;
-		} else lucro = 0.0;
+	public void setLucro(double lucro) {
+		this.lucro = lucro;
+	}
+	
+	public String toString() {
+		String r = "";
+		
+		r = id + " - " + Util.formataData(data) + " - " + funcionario.getNome() + "\n";
+		
+		Iterator<LivroVO> it = livros.iterator();
+		
+		while(it.hasNext()) {
+			r += "\t" + it.next().toString() + "\n";
+		}
+		
+		return r;
 	}
 }

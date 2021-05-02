@@ -9,7 +9,7 @@ import model.vo.LivroVO;
 import model.dao.LivroDAO;
 import model.vo.Util;
 
-public class LivroBO {
+public class LivroBO implements InterfaceBO<LivroVO>{
 	LivroDAO livrodao = new LivroDAO();
 	
 	public void inserir(LivroVO livro) {

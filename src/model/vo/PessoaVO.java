@@ -2,10 +2,8 @@ package model.vo;
 
 import java.util.Calendar;
 
-import model.vo.Util;
-
 public class PessoaVO {
-	private long id;
+	private long idpessoa;
 	private String nome;
 	private Calendar nascimento;
 	private String genero;
@@ -14,15 +12,15 @@ public class PessoaVO {
 	private String endereco;
 	private String email;
 	
-	public long getID() {
-	    return id;
+	public long getIDpessoa() {
+	    return idpessoa;
 	}
 	
-	public void setID(long id) {
+	public void setIDpessoa(long id) {
 		if(id > 0) {
-			this.id = id;
+			this.idpessoa = id;
 		} else {
-			System.out.println("ID inv�lido");
+			System.out.println("ID inválido");
 		}
 	}
 	
@@ -121,4 +119,5 @@ public class PessoaVO {
 				System.out.println("Email inválido");
 		} else System.out.println("Email vazio ou nulo");
 	}
+	
 }

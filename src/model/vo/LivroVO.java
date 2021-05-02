@@ -11,8 +11,8 @@ public class LivroVO {
 	private int paginas;
 	private String editora;
 	private int estoque;
-	private float val_compra;
-	private float val_venda;
+	private double val_compra;
+	private double val_venda;
 	private String idioma;
 	private Calendar data_publi;
 	
@@ -112,19 +112,19 @@ public class LivroVO {
 		this.estoque = estoque;
 	}
 	
-	public float getValorCompra() {
+	public double getValorCompra() {
 		return val_compra;
 	}
 	
-	public void setValorCompra(float val_compra) {
+	public void setValorCompra(double val_compra) {
 		this.val_compra = val_compra;
 	}
 	
-	public float getValorVenda() {
+	public double getValorVenda() {
 		return val_venda;
 	}
 	
-	public void setValorVenda(float val_venda) {
+	public void setValorVenda(double val_venda) {
 		this.val_venda = val_venda;
 	}
 	

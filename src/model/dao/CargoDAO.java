@@ -3,7 +3,7 @@ package model.dao;
 import model.vo.CargoVO;
 import java.sql.*;
 
-public class CargoDAO extends BaseDAO{
+public class CargoDAO extends BaseDAO implements InterfaceDAO<CargoVO>{
 	public void inserir(CargoVO cargo) {
 		conn = getConnection();
 		String sql = "insert into cargo(nome, salario) values(?, ?)";

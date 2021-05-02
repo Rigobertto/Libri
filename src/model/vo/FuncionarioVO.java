@@ -1,6 +1,6 @@
 package model.vo;
 
-public class FuncionarioVO extends PessoaVO{
+public class FuncionarioVO extends PessoaVO {
 	private long id;
 	private CargoVO cargo;
 	private String login;
