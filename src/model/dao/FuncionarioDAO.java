@@ -39,7 +39,20 @@ public class FuncionarioDAO extends BaseDAO{
 	}
 
 	public void atualizar(FuncionarioVO funcionario, FuncionarioVO novoFuncionario) {
+		conn = getConnection();
+		String sql = "update funcionario set id_pessoa = ?, id_cargo = ?, login = ?, senha = ? where ide = ?";
 		
+		try {
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setLong(1, novoFuncionario.getIDpessoa());
+			pst.setLong(2, novoFuncionario.getCargo().getID());
+			pst.setString(3, novoFuncionario.getLogin());
+			pst.setString(4, novoFuncionario.getSenha());
+			pst.setLong(5, funcionario.getID());
+			pst.execute();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public ResultSet buscarID(FuncionarioVO funcionario) {
