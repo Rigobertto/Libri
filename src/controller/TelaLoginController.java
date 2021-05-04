@@ -1,9 +1,9 @@
-package medbay.controller;
+package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import medbay.view.Telas;
+import view.Telas;
 
 public class TelaLoginController {
 	@FXML private TextField login;
