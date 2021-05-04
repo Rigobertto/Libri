@@ -1,4 +1,4 @@
-package medbay.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,9 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import medbay.model.bo.LivroBO;
-import medbay.model.vo.LivroVO;
-import medbay.view.Telas;
+import model.bo.LivroBO;
+import model.vo.LivroVO;
+import view.Telas;
 
 public class MenuLivroController implements Initializable{
 	@FXML private TableView<LivroVO> tabelaLivro;
