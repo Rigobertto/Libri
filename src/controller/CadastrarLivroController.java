@@ -1,12 +1,12 @@
-package medbay.controller;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import medbay.model.bo.LivroBO;
-import medbay.model.vo.LivroVO;
-import medbay.view.Telas;
+import model.bo.LivroBO;
+import model.vo.LivroVO;
+import view.Telas;
 
 public class CadastrarLivroController {
 	@FXML private TextField titulo;
