@@ -1,4 +1,4 @@
-package medbay.controller;
+package controller;
 
 public class MenuPrincipalController {
 
