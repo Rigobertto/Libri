@@ -1,4 +1,4 @@
-package medbay.controller;
+package controller;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -11,8 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import medbay.model.vo.LivroVO;
-import medbay.view.Telas;
+import model.vo.LivroVO;
+import view.Telas;
 
 public class InfoLivroController implements Initializable{
 	@FXML private Label ide;
