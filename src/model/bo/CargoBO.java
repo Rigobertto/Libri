@@ -2,10 +2,10 @@ package model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import model.dao.CargoDAO;
 import model.vo.CargoVO;
+import struct.LinkedListDoubly;
 
 public class CargoBO implements InterfaceBO<CargoVO>{
 	CargoDAO dao = new CargoDAO();
@@ -79,7 +79,7 @@ public class CargoBO implements InterfaceBO<CargoVO>{
 	
 	public List<CargoVO> listar() {
 		ResultSet rs = dao.listar();
-		List<CargoVO> list = new ArrayList<CargoVO>();
+		List<CargoVO> list = new LinkedListDoubly<CargoVO>();
 		
 		try {
 			while(rs.next()) {

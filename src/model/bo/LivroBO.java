@@ -2,12 +2,11 @@ package model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import model.vo.LivroVO;
 import model.dao.LivroDAO;
 import model.vo.Util;
+import struct.LinkedListDoubly;
 
 public class LivroBO implements InterfaceBO<LivroVO>{
 	LivroDAO livrodao = new LivroDAO();
@@ -149,7 +148,7 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public List<LivroVO> buscarAutor (LivroVO livro){
-		List<LivroVO> list = new ArrayList<LivroVO>();
+		List<LivroVO> list = new LinkedListDoubly<LivroVO>();
 		ResultSet rs = livrodao.buscarAutor(livro);
 		
 		try {
@@ -184,7 +183,7 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public List<LivroVO> buscarTitulo(LivroVO livro) {
-		List<LivroVO> list = new ArrayList<LivroVO>();
+		List<LivroVO> list = new LinkedListDoubly<LivroVO>();
 		ResultSet rs = livrodao.buscarTitulo(livro);
 		
 		try {
@@ -219,7 +218,7 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public List<LivroVO> buscarIdioma(LivroVO livro) {
-		List<LivroVO> list = new ArrayList<LivroVO>();
+		List<LivroVO> list = new LinkedListDoubly<LivroVO>();
 		ResultSet rs = livrodao.buscarIdioma(livro);
 		
 		try {
@@ -254,7 +253,7 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public List<LivroVO> buscarPublicacao(LivroVO livro) {
-		List<LivroVO> list = new ArrayList<LivroVO>();
+		List<LivroVO> list = new LinkedListDoubly<LivroVO>();
 		ResultSet rs = livrodao.buscarPublicacao(livro);
 		
 		try {
@@ -289,7 +288,7 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public List<LivroVO> listar() {
-		List<LivroVO> list = new ArrayList<LivroVO>();
+		List<LivroVO> list = new LinkedListDoubly<LivroVO>();
 		ResultSet rs = livrodao.listar();
 		
 		try {
@@ -324,10 +323,8 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 	}
 	
 	public void mostrar(List<LivroVO> list) {
-		Iterator<LivroVO> it = list.iterator();
-		
-		while(it.hasNext()) {
-			System.out.println(it.next());
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
 		}
 	}
 }

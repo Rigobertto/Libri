@@ -161,4 +161,12 @@ public class LivroVO {
 	public String toString() {
 		return (titulo + ", " + autor);
 	}
+
+	public boolean equals(LivroVO livro) {
+		if(livro.id == this.id && livro.autor.equals(this.autor) && livro.cod_ISBN10.equals(this.cod_ISBN10) && livro.cod_ISBN13.equals(this.cod_ISBN13) && livro.data_publi == this.data_publi && livro.editora.equals(this.editora) && livro.idioma.equals(this.idioma) && livro.paginas == this.paginas && livro.titulo.equals(this.titulo) && livro.val_compra == this.val_compra && livro.val_venda == this.val_venda) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

@@ -2,12 +2,14 @@ package model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import model.dao.FuncionarioDAO;
 import model.vo.CargoVO;
 import model.vo.FuncionarioVO;
 import model.vo.PessoaVO;
 import model.vo.Util;
+import struct.LinkedListDoubly;
 
 public class FuncionarioBO extends PessoaBO {
 	FuncionarioDAO dao = new FuncionarioDAO();
@@ -138,6 +140,46 @@ public class FuncionarioBO extends PessoaBO {
 			}
 		} else {
 			System.out.println("nulo");
+			return null;
+		}
+	}
+
+	public List<FuncionarioVO> listarf() {
+		ResultSet rs = dao.listar();
+		List<FuncionarioVO> list = new LinkedListDoubly<FuncionarioVO>();
+		
+		try {
+			while(rs.next()) {
+				FuncionarioVO func = new FuncionarioVO();
+				func.setIDpessoa(rs.getLong("id_pessoa"));
+				
+				PessoaVO p = super.buscarID(func);
+				
+				func.setNome(p.getNome());
+				func.setNascimento(Util.formataData(p.getNascimento()));
+				func.setGenero(p.getGenero());
+				func.setCPF(p.getCPF());
+				func.setIdade(p.getIdade());
+				func.setEndereco(p.getEndereco());
+				func.setEmail(p.getEmail());
+				
+				func.setID(rs.getLong("ide"));
+				
+				CargoVO cargo = new CargoVO();
+				cargo.setID(rs.getLong("id_cargo"));
+				CargoBO bo = new CargoBO();
+				cargo = bo.buscarID(cargo);
+				func.setCargo(cargo);
+				
+				func.setLogin(rs.getString("login"));
+				func.setSenha(rs.getString("senha"));
+				
+				list.add(func);
+			} 
+
+			return list;
+		} catch(SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

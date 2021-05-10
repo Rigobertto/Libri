@@ -13,7 +13,7 @@ public class CargoVO {
 		if(id > 0) {
 			this.id = id;
 		} else {
-			System.out.println("ID inv�lido");
+			System.out.println("ID inválido");
 		}
 	}
 	
@@ -44,4 +44,12 @@ public class CargoVO {
 	public String toString() {
 		return nome + ", " + salario;
 	}
+
+	public boolean equals(CargoVO cargo) {
+		if(cargo.id == this.id && cargo.nome.equals(this.nome) && cargo.salario == this.salario){
+			return true;
+		} else {
+			return false;
+		}
+	} 
 }

@@ -98,4 +98,18 @@ public class PedidoVO {
 		
 		return r;
 	}
+
+	public boolean equals(PedidoVO pedido) {
+		if(pedido.id == this.id && pedido.data == this.data && pedido.funcionario.equals(this.funcionario) && pedido.hora == this.hora && pedido.lucro == this.lucro && pedido.operacao.equals(this.operacao) && pedido.valor == this.valor && pedido.livros.size() == this.livros.size()) {
+			for(int i = 0; i < livros.size(); i++) {
+				if(!pedido.livros.get(i).equals(livros.get(i))) {
+					return false;
+				}
+			}
+
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

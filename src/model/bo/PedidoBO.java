@@ -1,14 +1,13 @@
 package model.bo;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.vo.PedidoVO;
 import model.dao.PedidoDAO;
 import model.vo.Util;
+import struct.LinkedListDoubly;
 import model.vo.LivroVO;
 import model.vo.FuncionarioVO;
 
@@ -71,7 +70,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
 					
-					List<LivroVO> livros = new ArrayList<LivroVO>();
+					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
 					lvo.setID(rs.getLong("id_livro"));
 					
@@ -114,7 +113,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 	
 	public List<PedidoVO> buscarData(PedidoVO pedido) {
 		ResultSet rs = dao.buscarData(pedido);
-		List<PedidoVO> pedidos = new ArrayList<PedidoVO>();
+		List<PedidoVO> pedidos = new LinkedListDoubly<PedidoVO>();
 		
 		LivroBO lbo = new LivroBO();
 		
@@ -135,7 +134,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
 					
-					List<LivroVO> livros = new ArrayList<LivroVO>();
+					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
 					lvo.setID(rs.getLong("id_livro"));
 					
@@ -182,7 +181,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 	
 	public List<PedidoVO> buscarFuncionario(PedidoVO pedido){
 		ResultSet rs = dao.buscarFuncionario(pedido);
-		List<PedidoVO> pedidos = new ArrayList<PedidoVO>();
+		List<PedidoVO> pedidos = new LinkedListDoubly<PedidoVO>();
 		
 		LivroBO lbo = new LivroBO();
 		
@@ -203,7 +202,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
 					
-					List<LivroVO> livros = new ArrayList<LivroVO>();
+					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
 					lvo.setID(rs.getLong("id_livro"));
 					
@@ -250,7 +249,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 
 	public List<PedidoVO> listar() {
 		ResultSet rs = dao.listar();
-		List<PedidoVO> pedidos = new ArrayList<PedidoVO>();
+		List<PedidoVO> pedidos = new LinkedListDoubly<PedidoVO>();
 		
 		LivroBO lbo = new LivroBO();
 		
@@ -271,7 +270,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
 					
-					List<LivroVO> livros = new ArrayList<LivroVO>();
+					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
 					lvo.setID(rs.getLong("id_livro"));
 					
@@ -316,10 +315,10 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 		}
 	}
 	
-	public void mostrar(List<PedidoVO> compras) {
-		Iterator<PedidoVO> iterator = compras.iterator();
-		while (iterator.hasNext()) 
-			System.out.println(iterator.next());
+	public void mostrar(List<PedidoVO> list) {
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
 	}
 
 }

@@ -119,5 +119,18 @@ public class PessoaVO {
 				System.out.println("Email inválido");
 		} else System.out.println("Email vazio ou nulo");
 	}
+
+	public String toString() {
+		String r = idpessoa + " " + cpf + " - " + nome + " " + idade;
+
+		return r;
+	}
 	
+	public boolean equals(PessoaVO pessoa) {
+		if(pessoa.idpessoa == this.idpessoa && pessoa.cpf.equals(this.cpf) && pessoa.email.equals(this.email) && pessoa.endereco.equals(this.endereco) && pessoa.genero.equals(this.genero) && pessoa.idade == this.idade && pessoa.nascimento == this.nascimento && pessoa.nome.equals(this.nome)){
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

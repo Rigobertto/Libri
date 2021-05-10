@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
-import java.util.Iterator;
 import java.util.List;
 
 import model.vo.PedidoVO;
@@ -19,11 +18,10 @@ public class PedidoDAO extends BaseDAO implements InterfaceDAO<PedidoVO>{
 		String sql = "insert into pedido(id_pedido, operacao, id_livro, quantidade, valor, id_funcionario, data_pedido, hora, lucro) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		List<LivroVO> livros = pedido.getLivros();
-		Iterator<LivroVO> it = livros.iterator();
 		
 		try {
-			while(it.hasNext()) {
-				LivroVO livro = it.next();
+			for(int i = 0; i < livros.size(); i++) {
+				LivroVO livro = livros.get(i);
 				
 				PreparedStatement pst = conn.prepareStatement(sql);
 				

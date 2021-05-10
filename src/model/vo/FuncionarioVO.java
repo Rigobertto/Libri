@@ -54,4 +54,18 @@ public class FuncionarioVO extends PessoaVO {
 		}
 	}
 
+	public String toString() {
+		String r = super.toString();
+		r += "\n" + id + " " + cargo;
+
+		return r;
+	}
+
+	public boolean equals(FuncionarioVO func) {
+		if(super.equals(func) && func.id == this.id && func.cargo.equals(this.cargo) && func.login.equals(this.login) && func.senha.equals(this.senha)){
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

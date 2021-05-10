@@ -1,10 +1,11 @@
 package model.bo;
 
 import java.util.List;
-import java.util.ArrayList;
 import model.dao.PessoaDAO;
 import model.vo.PessoaVO;
 import model.vo.Util;
+import struct.LinkedListDoubly;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -85,7 +86,7 @@ public class PessoaBO implements InterfaceBO<PessoaVO>{
 
 	public List<PessoaVO> listar() {
 		ResultSet rs = dao.listar();
-		List<PessoaVO> list = new ArrayList<PessoaVO>();
+		List<PessoaVO> list = new LinkedListDoubly<PessoaVO>();
 		
 		try {
 			while(rs.next()) {
