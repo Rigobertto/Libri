@@ -4,8 +4,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
-public class LinkedListDoubly<T> implements List<T>{
+public class LinkedListDoubly<T> implements List<T>, Iterable<T> {
 	//classe interna
 	class Node {
 		int id;
@@ -265,11 +266,39 @@ public class LinkedListDoubly<T> implements List<T>{
 	public boolean contains(Object o) {
 		return false;
 	}
+	
+	class LinkedListIterator implements Iterator<T> {
+		Node current = null;
+		
+		@Override
+		public boolean hasNext() {
+			if(current == null && head != null) {
+				return true;
+			} else if (current != null) {
+				return current.next != null; //true se o próximo não for nulo e false se for nulo
+			} else {
+				return false;
+			}
+		}
 
+		@Override
+		public T next() {
+			if(current == null && head != null) {
+				current = head;
+				return current.data;
+			} else if (current != null) {
+				current = current.next;
+				return current.data;
+			}
+			
+			throw new NoSuchElementException();
+		}
+		
+	}
+	
 	@Override
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LinkedListIterator();
 	}
 
 	@Override
