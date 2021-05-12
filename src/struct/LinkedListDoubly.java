@@ -321,8 +321,19 @@ public class LinkedListDoubly<T> implements List<T>, Iterable<T> {
 
 	@Override
 	public boolean addAll(Collection<? extends T> c) {
-		// TODO Auto-generated method stub
-		return false;
+		if(c != null) {	
+			Iterator<? extends T> it = c.iterator();
+			
+			while(it.hasNext()) {
+				if(!add(it.next())) {
+					return false;
+				}
+			}
+			
+			return true;
+		} else {
+			throw new NullPointerException();
+		}
 	}
 
 	@Override
