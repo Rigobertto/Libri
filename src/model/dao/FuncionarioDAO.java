@@ -90,7 +90,44 @@ public class FuncionarioDAO extends BaseDAO{
 			return null;
 		}
 	}
-
+	
+	public ResultSet buscarCargo(FuncionarioVO funcionario) {
+		conn = getConnection();
+		String sql = "select * from funcionario where id_cargo = ?";
+		
+		PreparedStatement pst;
+		ResultSet rs;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setLong(1, funcionario.getCargo().getID());
+			rs = pst.executeQuery();
+			return rs;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public ResultSet autenticar(FuncionarioVO funcionario) {
+		conn = getConnection();
+		String sql = "select * from funcionario where login = ? and senha = ?";
+		
+		PreparedStatement pst;
+		ResultSet rs;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, funcionario.getLogin());
+			pst.setString(2, funcionario.getSenha());
+			rs = pst.executeQuery();
+			return rs;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public ResultSet listar() {
 		conn = getConnection();
 		String sql = "select * from funcionario";
