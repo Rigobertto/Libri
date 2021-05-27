@@ -79,6 +79,43 @@ public class FuncionarioBO extends PessoaBO {
 		}
 	}
 	
+	public FuncionarioVO autenticar(FuncionarioVO funcionario) {
+		ResultSet rs = dao.autenticar(funcionario);
+		
+		try {
+			if(rs.next()) {
+				FuncionarioVO func = new FuncionarioVO();
+				func.setIDpessoa(rs.getLong("id_pessoa"));
+				
+				PessoaVO p = super.buscarID(func);
+				
+				func.setNome(p.getNome());
+				func.setNascimento(Util.formataData(p.getNascimento()));
+				func.setGenero(p.getGenero());
+				func.setCPF(p.getCPF());
+				func.setIdade(p.getIdade());
+				func.setEndereco(p.getEndereco());
+				func.setEmail(p.getEmail());
+				
+				func.setID(rs.getLong("ide"));
+				
+				CargoVO cargo = new CargoVO();
+				cargo.setID(rs.getLong("id_cargo"));
+				CargoBO bo = new CargoBO();
+				cargo = bo.buscarID(cargo);
+				func.setCargo(cargo);
+				
+				func.setLogin(rs.getString("login"));
+				func.setSenha(rs.getString("senha"));
+				
+				return func;
+			} else return null;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public FuncionarioVO buscarIDpessoa(FuncionarioVO funcionario) {
 		ResultSet rs = dao.buscarIDpessoa(funcionario);
 
@@ -143,7 +180,47 @@ public class FuncionarioBO extends PessoaBO {
 			return null;
 		}
 	}
+	
+	public List<FuncionarioVO> buscarCargo(FuncionarioVO funcionario) {
+		ResultSet rs = dao.buscarCargo(funcionario);
+		List<FuncionarioVO> list = new LinkedListDoubly<FuncionarioVO>();
+		
+		try {
+			while(rs.next()) {
+				FuncionarioVO func = new FuncionarioVO();
+				func.setIDpessoa(rs.getLong("id_pessoa"));
+				
+				PessoaVO p = super.buscarID(func);
+				
+				func.setNome(p.getNome());
+				func.setNascimento(Util.formataData(p.getNascimento()));
+				func.setGenero(p.getGenero());
+				func.setCPF(p.getCPF());
+				func.setIdade(p.getIdade());
+				func.setEndereco(p.getEndereco());
+				func.setEmail(p.getEmail());
+				
+				func.setID(rs.getLong("ide"));
+				
+				CargoVO cargo = new CargoVO();
+				cargo.setID(rs.getLong("id_cargo"));
+				CargoBO bo = new CargoBO();
+				cargo = bo.buscarID(cargo);
+				func.setCargo(cargo);
+				
+				func.setLogin(rs.getString("login"));
+				func.setSenha(rs.getString("senha"));
+				
+				list.add(func);
+			} 
 
+			return list;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<FuncionarioVO> listarf() {
 		ResultSet rs = dao.listar();
 		List<FuncionarioVO> list = new LinkedListDoubly<FuncionarioVO>();
