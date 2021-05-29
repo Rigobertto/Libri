@@ -98,4 +98,20 @@ public class CargoBO implements InterfaceBO<CargoVO>{
 		}
 	}
 	
+	public List<String> listarNomes(){
+		ResultSet rs = dao.listar();
+		List<String> list = new LinkedListDoubly<String>();
+		
+		try {
+			while(rs.next()) {
+				String nomes = rs.getString("nome");
+				list.add(nomes);
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }
