@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuCargoController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="394.0" layoutX="42.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Group%2013.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tabelaCargo" layoutX="306.0" layoutY="202.0" prefHeight="386.0" prefWidth="668.0" style="-fx-background-color: #ffffff; -fx-border-color: #127696;">
+         <columns>
+            <TableColumn fx:id="ide" prefWidth="69.60000610351562" text="ID" />
+            <TableColumn fx:id="cargo" prefWidth="309.5999755859375" text="Cargo" />
+            <TableColumn fx:id="salario" minWidth="0.0" prefWidth="284.0" text="Salario" />
+         </columns>
+      </TableView>
+      <Button layoutX="304.0" layoutY="624.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="43.0" prefWidth="185.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Cadastrar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="548.0" layoutY="624.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="43.0" prefWidth="185.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Atualizar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="790.0" layoutY="624.0" mnemonicParsing="false" onAction="#excluir" prefHeight="43.0" prefWidth="185.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="969.0" layoutY="31.0" text="Ajuda" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1040.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vectorr.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1076.0" layoutY="27.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #ffffff;" text="Log Out" textAlignment="CENTER" />
+      <Button layoutX="1189.0" layoutY="27.0" mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #ffffff;" text="Voltar" textAlignment="CENTER" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1153.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vector-4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="925.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Component%204.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="pesquisa" layoutX="304.0" layoutY="130.0" prefHeight="43.0" prefWidth="292.0" promptText="Busque por ID ou Nome" style="-fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Button layoutX="790.0" layoutY="130.0" mnemonicParsing="false" onAction="#buscar" prefHeight="43.0" prefWidth="185.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Buscar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="pesquisac" layoutX="607.0" layoutY="130.0" onAction="#box" prefHeight="43.0" prefWidth="166.0" promptText="SELECIONE" style="-fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Label fx:id="erroSelect" layoutX="818.0" layoutY="99.0" prefHeight="27.0" prefWidth="166.0" text="Selecione" textAlignment="CENTER" textFill="#127696" visible="false" />
+   </children>
+</Pane>
