@@ -218,4 +218,23 @@ public class LivroDAO extends BaseDAO implements InterfaceDAO<LivroVO>{
 			return null;
 		}
 	}
+	
+	public ResultSet verificarEstoque(LivroVO livro) {
+		conn = getConnection();
+		String sql = "select * from livro where ide = ? and estoque > ?";
+		
+		PreparedStatement pst;
+		ResultSet rs;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setLong(1, livro.getID());
+			pst.setInt(2, livro.getEstoque());
+			rs = pst.executeQuery();
+			return rs;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
