@@ -15,35 +15,24 @@ public class PedidoDAO extends BaseDAO implements InterfaceDAO<PedidoVO>{
 
 	public void inserir(PedidoVO pedido) {
 		conn = getConnection();
-		String sql = "insert into pedido(id_pedido, operacao, id_livro, quantidade, valor, id_funcionario, data_pedido, hora, lucro) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into pedido(id_pedido, id_livro, quantidade, valor, id_funcionario, data_pedido, hora, lucro) values (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		List<LivroVO> livros = pedido.getLivros();
 		
 		try {
-			for(int i = 0; i < livros.size(); i++) {
+			for(int i = 1; i <= livros.size(); i++) {
 				LivroVO livro = livros.get(i);
 				
 				PreparedStatement pst = conn.prepareStatement(sql);
 				
 				pst.setLong(1, pedido.getID());
-				pst.setString(2, pedido.getOperacao());
-				pst.setLong(3, livro.getID());
-				pst.setInt(4, livro.getEstoque()); //quantidade pedida
-				
-				double v = 0, l = 0;
-				if(pedido.getOperacao().equals("compra")) {
-					v = ((double)livro.getValorCompra()) * livro.getEstoque();
-					l = -1 * livro.getValorCompra();
-				} else if(pedido.getOperacao().equals("venda")) {
-					v = ((double)livro.getValorVenda()) * livro.getEstoque();
-					l = livro.getValorVenda() - livro.getValorCompra();
-				}
-				
-				pst.setDouble(5, v);
-				pst.setLong(6, pedido.getFuncionario().getID());
-				pst.setDate(7, new Date(pedido.getData().getTimeInMillis()));
-				pst.setTime(8, new Time(pedido.getHora().getTimeInMillis()));
-				pst.setDouble(9, l);
+				pst.setLong(2, livro.getID());
+				pst.setInt(3, livro.getEstoque()); //quantidade pedida
+				pst.setDouble(4, ((double)livro.getValorVenda()) * livro.getEstoque());
+				pst.setLong(5, pedido.getFuncionario().getID());
+				pst.setDate(6, new Date(pedido.getData().getTimeInMillis()));
+				pst.setTime(7, new Time(pedido.getHora().getTimeInMillis()));
+				pst.setDouble(8, livro.getValorVenda() - livro.getValorCompra());
 				
 				pst.execute();
 			}
@@ -142,5 +131,4 @@ public class PedidoDAO extends BaseDAO implements InterfaceDAO<PedidoVO>{
 			return null;
 		}
 	}
-
 }
