@@ -21,13 +21,14 @@ public class TelaLoginController {
 			vo.setSenha(senha.getText());
 			vo = bo.autenticar(vo);
 			System.out.println(vo.getCargo().getNome());
-			if(vo.getCargo().getNome().equalsIgnoreCase("GERENTE")) {
+			if(vo.getCargo().getNome().equals("GERENTE")) {
 				MenuPrincipalController.setFuncionario(vo);
 				System.out.println(vo.getNome());
 				Telas.telaMenuPrincipal();
-			}else if(vo.getCargo().getNome().equalsIgnoreCase("VENDENDOR")) {
-				
-			}else if(vo.getCargo().getNome().equalsIgnoreCase("CAIXA")) {
+			}else if(vo.getCargo().getNome().equals("VENDENDOR")) {
+				BuscaLivroController.setFuncionario(vo);
+				Telas.telaBuscaLivro();
+			}else if(vo.getCargo().getNome().equals("CAIXA")) {
 				
 			}else {
 				erroAut.setVisible(true);
