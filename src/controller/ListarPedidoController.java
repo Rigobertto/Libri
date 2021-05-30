@@ -60,6 +60,10 @@ public class ListarPedidoController implements Initializable{
 		return livros;
 	}
 	
+	public static void setLivros() {
+		livros = new LinkedListDoubly<LivroVO>();
+	}
+	
 	@Override
     public void initialize(URL url, ResourceBundle rb) {
     	listar();

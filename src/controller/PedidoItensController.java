@@ -129,6 +129,7 @@ public class PedidoItensController implements Initializable {
 	    	pedidobo.inserir(pedido);
 	    	
 	    	try {
+	    		ListarPedidoController.setLivros();
 	    		ListarPedidoController.setFuncionario(funcionario);
 				Telas.telaListarPedido();
 			}catch(Exception e) {
@@ -139,6 +140,7 @@ public class PedidoItensController implements Initializable {
 	    @FXML
 	    void cancelarCompra(ActionEvent event) {
 	    	try {
+	    		ListarPedidoController.setLivros();
 	    		ListarPedidoController.setFuncionario(funcionario);
 				Telas.telaListarPedido();
 			}catch(Exception e) {
@@ -149,6 +151,7 @@ public class PedidoItensController implements Initializable {
 	    @FXML
 	    void voltar(ActionEvent event) {
 	    	try {
+	    		ListarPedidoController.setLivros();
 	    		ListarPedidoController.setFuncionario(funcionario);
 				Telas.telaListarPedido();
 			}catch(Exception e) {
