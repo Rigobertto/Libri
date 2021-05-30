@@ -171,6 +171,22 @@ public class Telas extends Application{
 		}  
 	}
 	
+	public static void telaExcluirPedido() {
+		popup = new Stage();
+		popup.initModality(Modality.APPLICATION_MODAL);
+		popup.setTitle("Adicionar Produtos");
+		Parent root;
+		try {
+			root = FXMLLoader.load(Telas.class.getResource("telas/PopupExcluirPedido.fxml"));
+			Scene cena = new Scene(root);
+			popup.setScene(cena);
+			popup.showAndWait();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	}
+	
 	public static void telaPedidoItens() throws Exception{
 		Parent root = FXMLLoader.load(Telas.class.getResource("telas/PedidoItens.fxml"));
 		Scene cena = new Scene(root);
