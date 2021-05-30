@@ -2,6 +2,7 @@ package model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 import model.vo.LivroVO;
 import model.dao.LivroDAO;
@@ -322,9 +323,49 @@ public class LivroBO implements InterfaceBO<LivroVO>{
 		}
 	}
 	
+	public LivroVO verificarEstoque(LivroVO livro) {
+		ResultSet rs = livrodao.verificarEstoque(livro);
+		
+		try {
+			if(rs.next()) {
+				livro.setID(rs.getLong("ide"));
+			
+				livro.setCodISBN10(rs.getString("isbn10"));
+				livro.setCodISBN13(rs.getString("isbn13"));
+				livro.setPaginas(rs.getInt("paginas"));
+				livro.setEditora(rs.getString("editora"));
+				//livro.setEstoque(rs.getInt("estoque"));
+				livro.setValorVenda(rs.getFloat("val_venda"));
+				livro.setValorCompra(livro.getValorVenda() * livro.getEstoque()); //usando a variável valor_compra que não seria usada nessa operação pra colocar o valor total
+				livro.setIdioma(rs.getString("idioma"));
+				
+				String d = rs.getString("data_publicacao");
+				d = Util.inverteData(d);
+				livro.setDataPubli(d);
+				
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setAutor(rs.getString("autor"));
+				
+				return livro;
+			} else return null;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 	public void mostrar(List<LivroVO> list) {
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
+//		for(int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i));
+//		}
+		
+		Iterator<LivroVO> it = list.iterator();
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
 		}
 	}
 }
