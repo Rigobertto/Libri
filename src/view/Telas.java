@@ -137,7 +137,7 @@ public class Telas extends Application{
 	public static void popupConfirmar() throws Exception{
 		popup = new Stage();
 		popup.initModality(Modality.APPLICATION_MODAL);
-		popup.setTitle("Confirmar ação");
+		popup.setTitle("Confirmar a��o");
 		Parent root;
 		try {
 			root = FXMLLoader.load(Telas.class.getResource("telas/PopupConfirmar.fxml"));
@@ -151,6 +151,28 @@ public class Telas extends Application{
 	
 	public static void telaListarPedido() throws Exception{
 		Parent root = FXMLLoader.load(Telas.class.getResource("telas/ListarPedido.fxml"));
+		Scene cena = new Scene(root);
+		primaryStage.setScene(cena);
+	}
+	
+	public static void telaInserirCodigo() {
+		popup = new Stage();
+		popup.initModality(Modality.APPLICATION_MODAL);
+		popup.setTitle("Adicionar Produtos");
+		Parent root;
+		try {
+			root = FXMLLoader.load(Telas.class.getResource("telas/InserirCodigoLivro.fxml"));
+			Scene cena = new Scene(root);
+			popup.setScene(cena);
+			popup.showAndWait();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	}
+	
+	public static void telaPedidoItens() throws Exception{
+		Parent root = FXMLLoader.load(Telas.class.getResource("telas/PedidoItens.fxml"));
 		Scene cena = new Scene(root);
 		primaryStage.setScene(cena);
 	}
@@ -178,5 +200,4 @@ public class Telas extends Application{
 		Scene cena = new Scene(root);
 		primaryStage.setScene(cena);
 	}
-	
 }
