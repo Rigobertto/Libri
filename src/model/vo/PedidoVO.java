@@ -5,12 +5,14 @@ import java.util.List;
 
 public class PedidoVO {
 	private long id;
-	private String operacao;
 	private List<LivroVO> livros;
 	private double valor;
 	private FuncionarioVO funcionario;
+	private String vendedor;
 	private Calendar data;
 	private Calendar hora;
+	private String dataS;
+	private String horaS;
 	private double lucro;
 	
 	public long getID() {
@@ -22,18 +24,6 @@ public class PedidoVO {
 			this.id = id;
 		} else {
 			System.out.println("ID inv�lido");
-		}
-	}
-	
-	public String getOperacao() {
-		return operacao;
-	}
-	
-	public void setOperacao(String operacao) {
-		if(operacao != null && !operacao.isEmpty()) {
-			this.operacao = operacao;
-		} else {
-			System.out.println("Operação vazia ou nula");
 		}
 	}
 	
@@ -61,6 +51,14 @@ public class PedidoVO {
 		this.funcionario = funcionario;
 	}
 	
+	public String getVendedor() {
+		return vendedor;
+	}
+	
+	public void setVendedor() {
+		vendedor = funcionario.getNome();
+	}
+	
 	public Calendar getData() {
 		return data;
 	}
@@ -69,12 +67,33 @@ public class PedidoVO {
 		this.data = data;
 	}
 	
+	public String getDataS() {
+		return dataS;
+	}
+	
+	public void setDataS() {
+		dataS = Util.formataData(data);
+	}
+	
+	public void setDataS(String data) {
+		dataS = data;
+		this.data = Util.formataData(data);
+	}
+	
 	public Calendar getHora() {
 		return hora;
 	}
 	
 	public void setHora(Calendar hora) {
 		this.hora = hora;
+	}
+	
+	public String getHoraS() {
+		return horaS;
+	}
+	
+	public void setHoraS() {
+		horaS = Util.formataHora(hora);
 	}
 	
 	public double getLucro() {
@@ -100,7 +119,7 @@ public class PedidoVO {
 	}
 
 	public boolean equals(PedidoVO pedido) {
-		if(pedido.id == this.id && pedido.data == this.data && pedido.funcionario.equals(this.funcionario) && pedido.hora == this.hora && pedido.lucro == this.lucro && pedido.operacao.equals(this.operacao) && pedido.valor == this.valor && pedido.livros.size() == this.livros.size()) {
+		if(pedido.id == this.id && pedido.data == this.data && pedido.funcionario.equals(this.funcionario) && pedido.hora == this.hora && pedido.lucro == this.lucro && pedido.valor == this.valor && pedido.livros.size() == this.livros.size()) {
 			for(int i = 0; i < livros.size(); i++) {
 				if(!pedido.livros.get(i).equals(livros.get(i))) {
 					return false;
