@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="150.0" fitWidth="394.0" layoutX="42.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../VE/Group%2013%20(1).png" />
+            <Image url="@../VE/ItensDoPedido.png" />
          </image>
       </ImageView>
       <TableView fx:id="tabelaPedido" layoutX="163.0" layoutY="167.0" prefHeight="386.0" prefWidth="1058.0" style="-fx-background-color: #ffffff; -fx-border-color: #127696;">
@@ -66,7 +66,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="853.0" layoutY="575.0" mnemonicParsing="false" onAction="#finalizarCompra" prefHeight="43.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Cancelar Compra" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="539.0" layoutY="575.0" mnemonicParsing="false" onAction="#excluir" prefHeight="43.0" prefWidth="167.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="853.0" layoutY="575.0" mnemonicParsing="false" onAction="#cancelarCompra" prefHeight="43.0" prefWidth="167.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #127696;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

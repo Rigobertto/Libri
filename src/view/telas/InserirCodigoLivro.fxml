@@ -30,7 +30,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Button layoutX="109.0" layoutY="213.0" mnemonicParsing="false" onAction="#ok" style="-fx-background-radius: 5; -fx-background-color: #127696;" text="Sim" textFill="WHITE" />
-      <Button layoutX="165.0" layoutY="213.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-background-color: #127696;" text="Não" textFill="WHITE" />
+      <Button layoutX="129.0" layoutY="213.0" mnemonicParsing="false" onAction="#ok" style="-fx-background-radius: 5; -fx-background-color: #127696;" text="Ok" textFill="WHITE" />
+      <Button layoutX="184.0" layoutY="213.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-background-color: #127696;" text="Cancelar" textFill="WHITE" />
    </children>
 </Pane>
