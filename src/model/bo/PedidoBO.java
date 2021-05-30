@@ -21,7 +21,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 			if(lista == null) {
 				pedido.setID(1);
 			} else {
-				long lastId = lista.get(lista.size() - 1).getID();
+				long lastId = lista.get(lista.size()).getID();
 				pedido.setID(lastId + 1);
 			}
 			
@@ -63,12 +63,13 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 				if(lastId != rs.getLong("id_pedido")) {
 					lastId = rs.getLong("id_pedido");
 					p.setID(lastId);
-					p.setOperacao(rs.getString("operacao"));
 					
 					String data = rs.getString("data_pedido");
 					p.setData(Util.formataData(Util.inverteData(data)));
+					p.setDataS();
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
+					p.setHoraS();
 					
 					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
@@ -83,8 +84,10 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					FuncionarioVO fvo = new FuncionarioVO();
 					fvo.setID(rs.getLong("id_funcionario"));
-					//buscar id FuncionarioBO
+					FuncionarioBO fbo = new FuncionarioBO();
+					fvo = fbo.buscarID(fvo);
 					p.setFuncionario(fvo);
+					p.setVendedor();
 					
 					p.setLucro(rs.getDouble("lucro"));
 				} else {
@@ -127,12 +130,13 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 				if(lastId != rs.getLong("id_pedido")) {
 					lastId = rs.getLong("id_pedido");
 					p.setID(lastId);
-					p.setOperacao(rs.getString("operacao"));
 					
 					String data = rs.getString("data_pedido");
 					p.setData(Util.formataData(Util.inverteData(data)));
+			        p.setDataS();
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
+					p.setHoraS();
 					
 					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
@@ -147,8 +151,10 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					FuncionarioVO fvo = new FuncionarioVO();
 					fvo.setID(rs.getLong("id_funcionario"));
-					//buscar id FuncionarioBO
+					FuncionarioBO fbo = new FuncionarioBO();
+					fvo = fbo.buscarID(fvo);
 					p.setFuncionario(fvo);
+					p.setVendedor();
 					
 					p.setLucro(rs.getDouble("lucro"));
 					
@@ -195,12 +201,13 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 				if(lastId != rs.getLong("id_pedido")) {
 					lastId = rs.getLong("id_pedido");
 					p.setID(lastId);
-					p.setOperacao(rs.getString("operacao"));
 					
 					String data = rs.getString("data_pedido");
 					p.setData(Util.formataData(Util.inverteData(data)));
+					p.setDataS();
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
+					p.setHoraS();
 					
 					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
@@ -215,8 +222,10 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					FuncionarioVO fvo = new FuncionarioVO();
 					fvo.setID(rs.getLong("id_funcionario"));
-					//buscar id FuncionarioBO
+					FuncionarioBO fbo = new FuncionarioBO();
+					fvo = fbo.buscarID(fvo);
 					p.setFuncionario(fvo);
+					p.setVendedor();
 					
 					p.setLucro(rs.getDouble("lucro"));
 					
@@ -254,7 +263,7 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 		LivroBO lbo = new LivroBO();
 		
 		long lastId = 0;
-		int cont = -1;
+		int cont = 0;
 		
 		try {
 			while(rs.next()) {
@@ -263,12 +272,13 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 				if(lastId != rs.getLong("id_pedido")) {
 					lastId = rs.getLong("id_pedido");
 					p.setID(lastId);
-					p.setOperacao(rs.getString("operacao"));
 					
 					String data = rs.getString("data_pedido");
 					p.setData(Util.formataData(Util.inverteData(data)));
+					p.setDataS();
 					
 					p.setHora(Util.formataHora(rs.getString("hora")));
+					p.setHoraS();
 					
 					List<LivroVO> livros = new LinkedListDoubly<LivroVO>();
 					LivroVO lvo = new LivroVO();
@@ -283,8 +293,10 @@ public class PedidoBO implements InterfaceBO<PedidoVO>{
 					
 					FuncionarioVO fvo = new FuncionarioVO();
 					fvo.setID(rs.getLong("id_funcionario"));
-					//buscar id FuncionarioBO
+					FuncionarioBO fbo = new FuncionarioBO();
+					fvo = fbo.buscarID(fvo);
 					p.setFuncionario(fvo);
+					p.setVendedor();
 					
 					p.setLucro(rs.getDouble("lucro"));
 					
