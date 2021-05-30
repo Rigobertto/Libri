@@ -40,6 +40,7 @@ public class InserirCodigoLivroController implements Initializable{
 		if(!add) {
 			codigoProduto.setText(livro.getID() + "");
 			quantidade.setText(livro.getEstoque() + "");
+			codigoProduto.setDisable(true);
 		} 
 	}
 	
@@ -88,50 +89,28 @@ public class InserirCodigoLivroController implements Initializable{
     		
     		for(int i = 1; i <= ListarPedidoController.getLivros().size(); i++) {
     			if(ListarPedidoController.getLivros().get(i).getID() == livro.getID()) {
-    				if(id == livro.getID()) {
+    				LivroVO aux = new LivroVO();
+    				aux.setID(id);
+    				aux.setEstoque(quant);
+    				
+    				LivroBO livrobo = new LivroBO();
+    				aux = livrobo.verificarEstoque(aux);
+    				
+    				if(aux != null) {
     					ListarPedidoController.getLivros().get(i).setEstoque(quant);
+    					ListarPedidoController.getLivros().get(i).setValorCompra(aux.getValorCompra());
     					
     					try {
-							Telas.telaPedidoItens();
-							Telas.getPopup().close();
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-    					
-    					break;
+    						Telas.telaPedidoItens();
+    						Telas.getPopup().close();
+    					} catch (Exception e) {
+    						// TODO Auto-generated catch block
+    						e.printStackTrace();
+    					}
+        					
+        				break;
     				} else {
-    					ListarPedidoController.getLivros().remove(i);
-    					
-    	    			livro.setID(id);
-    	    			
-    	    			LivroBO livrobo = new LivroBO();
-    	    			livro = livrobo.buscarID(livro);
-    	    			
-    	    			if(livro != null) { //checa se o código é válido
-    	        			livro.setEstoque(quant);
-    	        			
-    	    				livro = livrobo.verificarEstoque(livro);
-    	    				
-    	    				if(livro != null) { //checa se tem estoque suficiente
-    	    					ListarPedidoController.getLivros().add(livro);
-    	    					
-    	    					try {
-    								Telas.telaPedidoItens();
-    								Telas.getPopup().close();
-    							} catch (Exception e) {
-    								// TODO Auto-generated catch block
-    								e.printStackTrace();
-    							}
-    	    				} else {
-    	    					qntd.setVisible(true);
-    	    				}
-    	    				
-    	    			} else {
-    	    				codigo.setVisible(true);
-    	    			}
-    	    			
-    	    			break;
+    					qntd.setVisible(true);
     				}
     			}
     		}

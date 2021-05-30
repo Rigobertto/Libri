@@ -66,6 +66,7 @@ public class ListarPedidoController implements Initializable{
 	
 	@Override
     public void initialize(URL url, ResourceBundle rb) {
+		erroSelect.setVisible(false);
     	listar();
     	box();
     }
@@ -148,8 +149,13 @@ public class ListarPedidoController implements Initializable{
 
     @FXML
     void excluir(ActionEvent event) {
-    	//PedidoVO pedido = tabelaPedido.getSelectionModel().getSelectedItem();
-    	
+    	if(tabelaPedido.getSelectionModel().getSelectedItem() != null) {
+	    	PedidoVO pedido = tabelaPedido.getSelectionModel().getSelectedItem();
+	    	PopupExcluirPedidoController.setPedido(pedido);
+	    	Telas.telaExcluirPedido();
+    	} else {
+    		erroSelect.setVisible(true);
+    	}
     }
 
     @FXML

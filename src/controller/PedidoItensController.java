@@ -2,6 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -55,11 +56,13 @@ public class PedidoItensController implements Initializable {
 	   
 		@Override
 	    public void initialize(URL url, ResourceBundle rb) {
+			erroSelect.setVisible(false);
 			listar();
 	    }
 		
 		public void listar() {
 			livros = FXCollections.observableArrayList(ListarPedidoController.getLivros());
+			
 			ide.setCellValueFactory(new PropertyValueFactory<LivroVO, Long>("ID"));
 			titulo.setCellValueFactory(new PropertyValueFactory<LivroVO, String>("titulo"));
 			codISBN10.setCellValueFactory(new PropertyValueFactory<LivroVO, String>("codISBN10"));
@@ -68,19 +71,24 @@ public class PedidoItensController implements Initializable {
 			valorUnitario.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorVenda"));
 			totalLivro.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorCompra")); //a variável valor_compra, que não seria usada, é usada nessa operação pra colocar o valor total
 			tabelaPedido.setItems(livros);
-			
+				
 			valor = 0;
-			for(int i = 1; i <= ListarPedidoController.getLivros().size(); i++) {
-				valor += ListarPedidoController.getLivros().get(i).getValorCompra();
+			Iterator<LivroVO> it = ListarPedidoController.getLivros().iterator();
+			while(it.hasNext()) {
+				valor += it.next().getValorCompra();
 			}
 			totalCompra.setText("Total da compra: R$" + valor);
 		}
 	    
 	    @FXML
 	    void atualizar(ActionEvent event) {
-	    	InserirCodigoLivroController.setLivro(tabelaPedido.getSelectionModel().getSelectedItem());
-	    	InserirCodigoLivroController.setAdd(false);
-	    	Telas.telaInserirCodigo();
+	    	if(tabelaPedido.getSelectionModel().getSelectedItem() != null) {
+		    	InserirCodigoLivroController.setLivro(tabelaPedido.getSelectionModel().getSelectedItem());
+		    	InserirCodigoLivroController.setAdd(false);
+		    	Telas.telaInserirCodigo();
+	    	} else {
+	    		erroSelect.setVisible(true);
+	    	}
 	    }
 
 	    @FXML
@@ -94,8 +102,13 @@ public class PedidoItensController implements Initializable {
 	    	LivroVO livro = tabelaPedido.getSelectionModel().getSelectedItem();
 	    	
 	    	for(int i = 1; i <= ListarPedidoController.getLivros().size(); i++) {
-	    		if(ListarPedidoController.getLivros().get(i).getID() == livro.getID()) {
+	    		if(ListarPedidoController.getLivros().get(i) != null && ListarPedidoController.getLivros().get(i).getID() == livro.getID()) {
 	    			ListarPedidoController.getLivros().remove(i);
+
+					if(ListarPedidoController.getLivros().size() == 0) {
+						ListarPedidoController.setLivros();
+					}
+					
 	    			try {
 						Telas.telaPedidoItens();
 					} catch (Exception e) {
