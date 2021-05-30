@@ -1,7 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,7 +27,7 @@ public class ListarPedidoController implements Initializable{
     @FXML
     private TableView<PedidoVO> tabelaPedido;
 	    @FXML
-	    private TableColumn<PedidoVO, Long> id_pedido;
+	    private TableColumn<PedidoVO, Long> id;
 	    @FXML
 	    private TableColumn<PedidoVO, String> data;
 	    @FXML
@@ -80,7 +79,7 @@ public class ListarPedidoController implements Initializable{
 		}
 		
 		if(pedidos != null) {
-			id_pedido.setCellValueFactory(new PropertyValueFactory<PedidoVO, Long>("id"));
+			id.setCellValueFactory(new PropertyValueFactory<PedidoVO, Long>("ID"));
 			data.setCellValueFactory(new PropertyValueFactory<PedidoVO, String>("dataS"));
 			hora.setCellValueFactory(new PropertyValueFactory<PedidoVO, String>("horaS"));
 			vendedor.setCellValueFactory(new PropertyValueFactory<PedidoVO, String>("vendedor"));
@@ -145,6 +144,7 @@ public class ListarPedidoController implements Initializable{
 
     @FXML
     void excluir(ActionEvent event) {
+    	//PedidoVO pedido = tabelaPedido.getSelectionModel().getSelectedItem();
     	
     }
 

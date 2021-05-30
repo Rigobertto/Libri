@@ -2,7 +2,6 @@ package controller;
 
 import java.net.URL;
 import java.util.Calendar;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -66,8 +65,8 @@ public class PedidoItensController implements Initializable {
 			codISBN10.setCellValueFactory(new PropertyValueFactory<LivroVO, String>("codISBN10"));
 			codISBN13.setCellValueFactory(new PropertyValueFactory<LivroVO, String>("codISBN13"));
 			quantidade.setCellValueFactory(new PropertyValueFactory<LivroVO, Integer>("estoque"));
-			valorUnitario.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorCompra"));
-			totalLivro.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorVenda")); //a variável valor_compra, que não seria usada, é usada nessa operação pra colocar o valor total
+			valorUnitario.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorVenda"));
+			totalLivro.setCellValueFactory(new PropertyValueFactory<LivroVO, Double>("ValorCompra")); //a variável valor_compra, que não seria usada, é usada nessa operação pra colocar o valor total
 			tabelaPedido.setItems(livros);
 			
 			valor = 0;
@@ -128,6 +127,13 @@ public class PedidoItensController implements Initializable {
 	    	
 	    	PedidoBO pedidobo = new PedidoBO();
 	    	pedidobo.inserir(pedido);
+	    	
+	    	try {
+	    		ListarPedidoController.setFuncionario(funcionario);
+				Telas.telaListarPedido();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 	    }
 	    
 	    @FXML
