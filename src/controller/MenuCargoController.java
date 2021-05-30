@@ -111,8 +111,13 @@ public class MenuCargoController implements Initializable{
 	public void excluir(ActionEvent event) {
 		try {
 			PopupConfirmarController.setControl(3);
-			Telas.setCsel(tabelaCargo.getSelectionModel().getSelectedItem());
-	    	Telas.popupConfirmar();
+			CargoVO cargovo = tabelaCargo.getSelectionModel().getSelectedItem();
+			if(cargovo.getNome().equals("GERENTE") || cargovo.getNome().equals("CAIXA") || cargovo.getNome().equals("VENDEDOR")) {
+				
+			}else {
+				Telas.setCsel(tabelaCargo.getSelectionModel().getSelectedItem());
+				Telas.popupConfirmar();
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
