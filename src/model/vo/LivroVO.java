@@ -6,13 +6,13 @@ public class LivroVO {
 	private long id;
 	private String titulo;
 	private String autor;
-	private String cod_ISBN10;
-	private String cod_ISBN13;
+	private String codISBN10;
+	private String codISBN13;
 	private int paginas;
 	private String editora;
 	private int estoque;
-	private double val_compra;
-	private double val_venda;
+	private double valCompra;
+	private double valVenda;
 	private String idioma;
 	private Calendar data_publi;
 	
@@ -53,13 +53,13 @@ public class LivroVO {
 	}
 	
 	public String getCodISBN10() {
-		return cod_ISBN10;
+		return codISBN10;
 	}
 	
 	public void setCodISBN10(String cod_ISBN10) {
 		if(cod_ISBN10 != null && !cod_ISBN10.isEmpty()) {
 			if(Util.isISBN10(cod_ISBN10))
-				this.cod_ISBN10 = cod_ISBN10;
+				this.codISBN10 = cod_ISBN10;
 			else System.out.println("Código inválido");
 		} else {
 			System.out.println("Código nulo ou vazio!");
@@ -67,13 +67,13 @@ public class LivroVO {
 	}
 	
 	public String getCodISBN13() {
-		return cod_ISBN13;
+		return codISBN13;
 	}
 	
 	public void setCodISBN13(String cod_ISBN13) {
 		if(cod_ISBN13 != null && !cod_ISBN13.isEmpty()) {
 			if(Util.isISBN13(cod_ISBN13))
-				this.cod_ISBN13 = cod_ISBN13;
+				this.codISBN13 = cod_ISBN13;
 			else System.out.println("Código inválido");
 		} else {
 			System.out.println("Código nulo ou vazio!");
@@ -113,19 +113,19 @@ public class LivroVO {
 	}
 	
 	public double getValorCompra() {
-		return val_compra;
+		return valCompra;
 	}
 	
 	public void setValorCompra(double val_compra) {
-		this.val_compra = val_compra;
+		this.valCompra = val_compra;
 	}
 	
 	public double getValorVenda() {
-		return val_venda;
+		return valVenda;
 	}
 	
 	public void setValorVenda(double val_venda) {
-		this.val_venda = val_venda;
+		this.valVenda = val_venda;
 	}
 	
 	public String getIdioma() {
@@ -163,7 +163,7 @@ public class LivroVO {
 	}
 
 	public boolean equals(LivroVO livro) {
-		if(livro.id == this.id && livro.autor.equals(this.autor) && livro.cod_ISBN10.equals(this.cod_ISBN10) && livro.cod_ISBN13.equals(this.cod_ISBN13) && livro.data_publi == this.data_publi && livro.editora.equals(this.editora) && livro.idioma.equals(this.idioma) && livro.paginas == this.paginas && livro.titulo.equals(this.titulo) && livro.val_compra == this.val_compra && livro.val_venda == this.val_venda) {
+		if(livro.id == this.id && livro.autor.equals(this.autor) && livro.codISBN10.equals(this.codISBN10) && livro.codISBN13.equals(this.codISBN13) && livro.data_publi == this.data_publi && livro.editora.equals(this.editora) && livro.idioma.equals(this.idioma) && livro.paginas == this.paginas && livro.titulo.equals(this.titulo)) {
 			return true;
 		} else {
 			return false;
