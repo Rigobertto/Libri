@@ -1,5 +1,7 @@
 package controller;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -140,7 +142,12 @@ public class PedidoItensController implements Initializable {
 	    	
 	    	PedidoBO pedidobo = new PedidoBO();
 	    	pedidobo.inserir(pedido);
-	    	
+	    	PedidoVO ped = pedido;
+	    	try {
+	    		gerarNota(ped);
+	    	}catch(IOException E) {
+	    		E.printStackTrace();
+	    	}
 	    	try {
 	    		ListarPedidoController.setLivros();
 	    		ListarPedidoController.setFuncionario(funcionario);
@@ -171,4 +178,32 @@ public class PedidoItensController implements Initializable {
 				e.printStackTrace();
 			}
 	    }
+	
+	public void gerarNota(PedidoVO ped) throws IOException {
+	    	try {
+		    	FileWriter arq = new FileWriter("C:\\Users\\rigor\\Desktop\\NotaFiscal" + ped.getID() + ".txt");
+		        PrintWriter gravarArq = new PrintWriter(arq);
+	
+		        gravarArq.printf("Nota Fiscal\n");
+		        gravarArq.printf("-------------\n");
+		        List<LivroVO> lvrs = new LinkedListDoubly<>();
+		        Iterator<LivroVO> a = lvrs.iterator();
+		        lvrs = ped.getLivros();
+		        while(a.hasNext()) { 
+		        	LivroVO lvo = new LivroVO();
+		        	lvo = a.next();
+		        	gravarArq.printf("Livro: " + lvo.getTitulo() + " - Quantidade: " + lvo.getEstoque() +" - Valor do livro: R$" + lvo.getValorVenda() + "\n");
+			        
+		        }
+		        	
+		        gravarArq.printf("-------------\n");
+		        gravarArq.printf("Valor total do produto: R$" + String.valueOf(ped.getValor()) + "\n");
+		        gravarArq.printf("\n");
+	
+		        arq.close();
+	    	}catch(IOException e) {
+	    		e.printStackTrace();
+	    	}
+		
+		}
 }
