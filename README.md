@@ -14,14 +14,13 @@
 * Alteração de Funcionários;
 * Exclusão de funcionários;
 * Controle de estoque de Livros (adição e subtração de unidades);
-* Monitoramento de Lucro.
+
 ---
 ## Recursos adotados em cada funcionalidade
 * Java 8;
 * IDE: Eclipse versão 2020;
 * API JavaFX 8;
 * Editor gráfico Scene Builder;
-* iTextPdf
 * Banco de Dados PostgreSQL;
 * JDBC.
 ---
@@ -50,12 +49,10 @@
 
 3. Classe Pedido {
    * Livros;
-   * Valor;
    * Funcionário;
    * Data;
    * Hora;
-   * Operação (compra ou venda);
-   * Lucro;}
+   * Operação (venda);}
 ---
 ## Arquitetura
 #### O sistema será estruturado de acordo com a Arquitetura Modelo-Visão-Controle (MVC), que visa a reutilização de código e separação de conceitos em três camadas interligadas, onde a apresentação dos dados e a interação com o usuário ficam separadas dos métodos de interação com o banco de dados, visando maior organização e agilidade.
