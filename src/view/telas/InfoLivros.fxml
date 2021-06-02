@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InfoLivroController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="554.0" layoutX="42.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Group%208.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="244.0" layoutY="143.0" prefHeight="434.0" prefWidth="792.0" style="-fx-background-color: #127696; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <children>
+            <Label fx:id="titulo" layoutX="58.0" layoutY="14.0" prefHeight="35.0" prefWidth="664.0" text="Título: " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="120.0" text="Autor(a): " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="160.0" text="Editora: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="490.0" layoutY="120.0" text="Estoque: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="490.0" layoutY="160.0" text="Valor de Venda: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="240.0" text="COD ISBN10: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="280.0" text="COD ISBN13: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="80.0" text="ID: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="490.0" layoutY="80.0" text="Paginas: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="490.0" layoutY="200.0" text="Valor de Compra: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="200.0" text="Idioma: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="320.0" text="Data de Publicação: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="ide" layoutX="92.0" layoutY="78.0" prefHeight="35.0" prefWidth="166.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="autor" layoutX="151.0" layoutY="118.0" prefHeight="35.0" prefWidth="283.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="editora" layoutX="137.0" layoutY="158.0" prefHeight="35.0" prefWidth="292.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="idioma" layoutX="137.0" layoutY="198.0" prefHeight="35.0" prefWidth="292.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="codISBN10" layoutX="188.0" layoutY="238.0" prefHeight="35.0" prefWidth="245.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="codISBN13" layoutX="188.0" layoutY="278.0" prefHeight="35.0" prefWidth="256.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="dataPublicacao" layoutX="250.0" layoutY="318.0" prefHeight="35.0" prefWidth="256.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="paginas" layoutX="575.0" layoutY="78.0" prefHeight="35.0" prefWidth="154.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="estoque" layoutX="575.0" layoutY="118.0" prefHeight="35.0" prefWidth="124.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="val_venda" layoutX="645.0" layoutY="158.0" prefHeight="35.0" prefWidth="77.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="val_compra" layoutX="660.0" layoutY="200.0" prefHeight="35.0" prefWidth="77.0" text="xxxxx " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="983.0" layoutY="31.0" text="Ajuda" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="937.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Component%204.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1167.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vector-4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1054.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vectorr.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1090.0" layoutY="27.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #ffffff;" text="Log Out" textAlignment="CENTER" />
+      <Button layoutX="1203.0" layoutY="27.0" mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #ffffff;" text="Voltar" textAlignment="CENTER" />
+   </children>
+</Pane>

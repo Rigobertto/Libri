@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuPrincipalController">
+   <children>
+      <Pane prefHeight="720.0" prefWidth="278.0" style="-fx-background-color: #127696;">
+         <children>
+            <ImageView fitHeight="654.0" fitWidth="127.0" layoutX="75.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../VE/Component%209.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="33.0" layoutY="264.0" mnemonicParsing="false" onAction="#menuLivro" prefHeight="48.0" prefWidth="212.0" style="-fx-background-color: #ffffff; -fx-background-radius: 60; -fx-border-radius: 60; -fx-border-color: #127696;" text="LIVROS" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="33.0" layoutY="335.0" mnemonicParsing="false" onAction="#menuFuncionario" prefHeight="48.0" prefWidth="212.0" style="-fx-background-color: #ffffff; -fx-background-radius: 60; -fx-border-radius: 60; -fx-border-color: #127696;" text="FUNCIONARIOS" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="33.0" layoutY="406.0" mnemonicParsing="false" onAction="#menuPedido" prefHeight="48.0" prefWidth="212.0" style="-fx-background-color: #ffffff; -fx-background-radius: 60; -fx-border-radius: 60; -fx-border-color: #127696;" text="CAIXA" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="969.0" layoutY="31.0" text="Ajuda" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1040.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vectorr.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1076.0" layoutY="27.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #ffffff;" text="Log Out" textAlignment="CENTER" />
+      <Button layoutX="1189.0" layoutY="27.0" mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: #ffffff;" text="Voltar" textAlignment="CENTER" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1153.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Vector-4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="927.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../VE/Component%204.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="dataAtual" layoutX="956.0" layoutY="655.0" prefHeight="30.0" prefWidth="249.0" textAlignment="RIGHT">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Pane layoutX="347.0" layoutY="100.0" prefHeight="529.0" prefWidth="854.0" style="-fx-background-color: #127696;">
+         <children>
+            <WebView fx:id="web" layoutX="10.0" layoutY="35.0" prefHeight="486.0" prefWidth="834.0" />
+            <Button layoutX="10.0" layoutY="6.0" mnemonicParsing="false" onAction="#instagram" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #ffffff;" text="Instagram" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="194.0" layoutY="6.0" mnemonicParsing="false" onAction="#facebook" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #ffffff;" text="Facebook" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="378.0" layoutY="6.0" mnemonicParsing="false" onAction="#whatsapp" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #ffffff;" text="WhatsApp" textFill="#127696">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label fx:id="func" layoutX="347.0" layoutY="32.0" prefHeight="27.0" prefWidth="486.0" text="Olá Lorena" textFill="#127696">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
