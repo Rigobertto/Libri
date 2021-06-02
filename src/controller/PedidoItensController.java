@@ -181,14 +181,12 @@ public class PedidoItensController implements Initializable {
 	
 	public void gerarNota(PedidoVO ped) throws IOException {
 	    	try {
-		    	FileWriter arq = new FileWriter("C:\\Users\\rigor\\Desktop\\NotaFiscal" + ped.getID() + ".txt");
+		    	FileWriter arq = new FileWriter("C:\\Users\\rigor\\Desktop\\NotaFiscal\\" + ped.getID() + ".txt");
 		        PrintWriter gravarArq = new PrintWriter(arq);
 	
 		        gravarArq.printf("Nota Fiscal\n");
 		        gravarArq.printf("-------------\n");
-		        List<LivroVO> lvrs = new LinkedListDoubly<>();
-		        Iterator<LivroVO> a = lvrs.iterator();
-		        lvrs = ped.getLivros();
+		        Iterator<LivroVO> a = ListarPedidoController.getLivros().iterator();
 		        while(a.hasNext()) { 
 		        	LivroVO lvo = new LivroVO();
 		        	lvo = a.next();
